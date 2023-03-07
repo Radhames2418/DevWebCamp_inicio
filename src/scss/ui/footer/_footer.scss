@@ -10,7 +10,7 @@
     &__grid{
         @include m.contenedor;
         @include m.tablet {
-            @include m.grid(2, 3rem)
+            // @include m.grid(2, 3rem)
         }
     }
 

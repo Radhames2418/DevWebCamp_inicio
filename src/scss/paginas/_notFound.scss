@@ -1,0 +1,29 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+
+
+.notFound{
+    display: flex;
+    min-height: 50rem;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+
+    &__contenido{
+        @include m.contenedor;
+        max-width: 50%;
+    }
+
+    &__titulo{
+        text-align: center;
+        font-size: 10rem;
+    }
+
+    
+    &__texto{
+        text-align: center;
+        font-size: 3rem;
+
+    }
+}

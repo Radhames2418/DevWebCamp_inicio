@@ -32,7 +32,11 @@ class Router
         if ( $fn ) {
             call_user_func($fn, $this);
         } else {
-            echo "Página No Encontrada o Ruta no válida";
+
+            ob_start(); 
+            include_once __DIR__ . "/views/auth/notFound.php";
+            $contenido = ob_get_clean(); 
+            include_once __DIR__ . '/views/layout.php';
         }
     }
 

@@ -108,14 +108,17 @@
     
     &__boton{
         @include m.boton(v.$azul, v.$blanco);
+        margin-bottom: 1rem;
         text-transform: uppercase;
         font-size: 1.4rem;
         @include m.tablet{
             width: auto;
+            margin-bottom: 0;
         }
     }
 
     &__contenedor{
+        overflow: auto;
         @include m.shadow;
         background-color: v.$blanco;
         padding: 2rem;

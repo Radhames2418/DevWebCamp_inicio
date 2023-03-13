@@ -34,15 +34,24 @@ $router->post('/reestablecer', [AuthController::class, 'reestablecer']);
 $router->get('/mensaje', [AuthController::class, 'mensaje']);
 $router->get('/confirmar-cuenta', [AuthController::class, 'confirmar']);
 
-// Area de administracion
+// Area de administracion : principal
 $router->get('/admin/dashboard', [DashboardController::class, 'index']);
-$router->get('/admin/ponentes', [PonentesController::class, 'index']);
 
+// Area de administracion : ponentes
+$router->get('/admin/ponentes', [PonentesController::class, 'index']);
 $router->get('/admin/ponentes/crear', [PonentesController::class, 'crear']);
 $router->post('/admin/ponentes/crear', [PonentesController::class, 'crear']);
+$router->get('/admin/ponentes/editar', [PonentesController::class, 'editar']);
+$router->post('/admin/ponentes/editar', [PonentesController::class, 'editar']);
+$router->post('/admin/ponentes/eliminar', [PonentesController::class, 'eliminar']);
 
+// Area de administracion : eventos
 $router->get('/admin/eventos', [EventosController::class, 'index']);
+
+// Area de administracion : registros
 $router->get('/admin/registrados', [RegistradosController::class, 'index']);
+
+// Area de administracion : regalos
 $router->get('/admin/regalos', [RegalosController::class, 'index']);
 
 

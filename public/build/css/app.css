@@ -361,6 +361,27 @@ h3 {
   margin: 0 auto;
 }
 
+.notFound {
+  display: flex;
+  min-height: 50rem;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+.notFound__contenido {
+  width: min(95%, 140rem);
+  margin: 0 auto;
+  max-width: 50%;
+}
+.notFound__titulo {
+  text-align: center;
+  font-size: 10rem;
+}
+.notFound__texto {
+  text-align: center;
+  font-size: 3rem;
+}
+
 .formulario {
   display: flex;
   flex-direction: column;
@@ -413,6 +434,12 @@ h3 {
 .formulario__input--socieales {
   flex: 1;
   border-radius: 0 0.5rem 0.5rem 0;
+}
+.formulario__texto {
+  margin-top: 3rem;
+}
+.formulario__imagen {
+  max-width: 20rem;
 }
 .formulario__listado {
   margin: 0;
@@ -839,6 +866,7 @@ h3 {
   text-align: center;
   width: 100%;
   display: inline-block;
+  margin-bottom: 1rem;
   text-transform: uppercase;
   font-size: 1.4rem;
 }
@@ -849,9 +877,11 @@ h3 {
 @media (min-width: 768px) {
   .dashboard__boton {
     width: auto;
+    margin-bottom: 0;
   }
 }
 .dashboard__contenedor, .dashboard__formulario {
+  overflow: auto;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   background-color: #FFFFFF;
   padding: 2rem;
@@ -860,5 +890,45 @@ h3 {
 .dashboard__formulario {
   width: min(95%, 80rem);
   margin: 0 auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table__thead {
+  background-color: #1E293B;
+  color: #FFFFFF;
+}
+.table__th {
+  padding: 1rem;
+  text-align: left;
+}
+.table__tr:nth-child(even) {
+  background-color: #F8FAFC;
+}
+.table__td, .table__td--acciones {
+  padding: 1.5rem 1rem;
+}
+.table__td--acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  align-items: center;
+}
+.table__accion {
+  all: unset;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.table__accion--editar {
+  color: #007df4;
+}
+.table__accion--eliminar {
+  color: rgb(169, 0, 0);
+}
+.table__accion:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=app.css.map */

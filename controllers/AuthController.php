@@ -10,11 +10,9 @@ class AuthController
 {
     public static function login(Router $router)
     {
-
         $alertas = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
             $usuario = new Usuario($_POST);
 
             $alertas = $usuario->validarLogin();
@@ -27,7 +25,6 @@ class AuthController
                 } else {
                     // El Usuario existe
                     if (password_verify($_POST['password'], $usuario->password)) {
-
                         // Iniciar la sesión
                         session_start();
                         $_SESSION['id'] = $usuario->id;
@@ -40,7 +37,6 @@ class AuthController
                             header('Location: /admin/dashboard');
                         } else {
                             header('Location: /finalizar-registro');
-
                         }
                     } else {
                         Usuario::setAlerta('error', 'Password Incorrecto');
@@ -51,7 +47,7 @@ class AuthController
 
         $alertas = Usuario::getAlertas();
 
-        // Render a la vista 
+        // Render a la vista
         $router->render('auth/login', [
             'titulo' => 'Iniciar Sesión',
             'alertas' => $alertas
@@ -70,10 +66,9 @@ class AuthController
     public static function registro(Router $router)
     {
         $alertas = [];
-        $usuario = new Usuario;
+        $usuario = new Usuario();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
             $usuario->sincronizar($_POST);
 
             $alertas = $usuario->validar_cuenta();
@@ -130,7 +125,6 @@ class AuthController
                 $usuario = Usuario::where('email', $usuario->email);
 
                 if ($usuario && $usuario->confirmado) {
-
                     // Generar un nuevo token
                     $usuario->crearToken();
                     unset($usuario->password2);
@@ -148,7 +142,6 @@ class AuthController
 
                     $alertas['exito'][] = 'Hemos enviado las instrucciones a tu email';
                 } else {
-
                     // Usuario::setAlerta('error', 'El Usuario no existe o no esta confirmado');
 
                     $alertas['error'][] = 'El Usuario no existe o no esta confirmado';
@@ -165,12 +158,13 @@ class AuthController
 
     public static function reestablecer(Router $router)
     {
-
         $token = s($_GET['token']);
 
         $token_valido = true;
 
-        if (!$token) header('Location: /');
+        if (!$token) {
+            header('Location: /');
+        }
 
         // Identificar el usuario con este token
         $usuario = Usuario::where('token', $token);
@@ -182,7 +176,6 @@ class AuthController
 
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
             // Añadir el nuevo password
             $usuario->sincronizar($_POST);
 
@@ -218,7 +211,6 @@ class AuthController
 
     public static function mensaje(Router $router)
     {
-
         $router->render('auth/mensaje', [
             'titulo' => 'Cuenta Creada Exitosamente'
         ]);
@@ -226,10 +218,11 @@ class AuthController
 
     public static function confirmar(Router $router)
     {
-
         $token = s($_GET['token']);
 
-        if (!$token) header('Location: /');
+        if (!$token) {
+            header('Location: /');
+        }
 
         // Encontrar al usuario con este token
         $usuario = Usuario::where('token', $token);
@@ -248,8 +241,6 @@ class AuthController
 
             Usuario::setAlerta('exito', 'Cuenta Comprobada Correctamente');
         }
-
-
 
         $router->render('auth/confirmar', [
             'titulo' => 'Confirma tu cuenta DevWebcamp',

@@ -2,18 +2,41 @@
 
 namespace Controllers;
 
+use Classes\Paginacion;
 use MVC\Router;
 use Model\Ponente;
 use Intervention\Image\ImageManagerStatic as Image;
+use Model\ActiveRecord;
 
 class PonentesController
 {
-
     public static function index(Router $router)
     {
+        /**
+         * Autenticacion del usuario
+         *
+         */
         if (!is_auth() && !is_admin()) {
             header('location: /login');
         }
+
+        $pagina_actual = $_GET['page'] ?? '';
+        $pagina_actual = filter_var($pagina_actual, FILTER_VALIDATE_INT);
+
+        if (!$pagina_actual || $pagina_actual < 0) {
+            header('location: /admin/ponentes?page=1');
+        }
+
+        $registos_por_pagina = 10;
+        $total = Ponente::total();
+
+        $paginacion = new Paginacion(
+            $pagina_actual,
+            $registos_por_pagina,
+            $total
+        );
+
+        // debuguear($paginacion);
 
         $ponentes = Ponente::all();
 
@@ -28,14 +51,12 @@ class PonentesController
         if (!is_auth() && !is_admin()) {
             header('location: /login');
         }
-        
+
         $alertas = [];
         $ponente = new Ponente();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
             if (!empty($_FILES['imagen']['tmp_name'])) {
-
                 $carpeta_imagenes = '../public/img/speakers';
 
                 if (!is_dir($carpeta_imagenes)) {
@@ -101,9 +122,7 @@ class PonentesController
 
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
             if (!empty($_FILES['imagen']['tmp_name'])) {
-
                 $carpeta_imagenes = '../public/img/speakers';
 
                 if (!is_dir($carpeta_imagenes)) {
@@ -126,7 +145,6 @@ class PonentesController
             $alertas = $ponente->validar();
 
             if (empty($alertas)) {
-
                 if (isset($nombre_imagen)) {
                     $imagen_png->save($carpeta_imagenes . '/' . $nombre_imagen . '.png');
                     $imagen_webp->save($carpeta_imagenes . '/' . $nombre_imagen . '.webp');
@@ -151,11 +169,10 @@ class PonentesController
 
     public static function eliminar(Router $router)
     {
-
         if (!is_auth() && !is_admin()) {
             header('location: /login');
         }
-        
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id'];
             $id = filter_var($id, FILTER_VALIDATE_INT);

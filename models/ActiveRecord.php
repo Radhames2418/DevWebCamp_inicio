@@ -48,9 +48,9 @@ class ActiveRecord
     /**
      * Validación que se hereda en modelos
      *
-     * @return array
+     * @return void
      */
-    public function validar(): array
+    public function validar()
     {
         static::$alertas = [];
         return static::$alertas;

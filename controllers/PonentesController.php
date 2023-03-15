@@ -36,7 +36,7 @@ class PonentesController
             $total
         );
 
-        // debuguear($paginacion);
+        debuguear($paginacion->total_pagina());
 
         $ponentes = Ponente::all();
 

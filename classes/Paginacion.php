@@ -14,4 +14,14 @@ class Paginacion
         $this->registro_por_pagina = (int) $registro_por_pagina;
         $this->total_registro = (int) $total_registro;
     }
+
+    public function offset()
+    {
+        return $this->registro_por_pagina * ($this->pagina_actual - 1);
+    }
+
+    public function total_pagina()
+    {
+        return ceil($this->total_registro / $this->registro_por_pagina);
+    }
 }

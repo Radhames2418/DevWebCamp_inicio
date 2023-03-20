@@ -1,10 +1,8 @@
 <fieldset class="formulario__fieldset">
     <legend class="formulario__legend">Información Personal</legend>
 
-    <div class="formulario__campo">
-        <label for="nombre" class="formulario__label">Nombre</label>
-        <input name="nombre" type="text" class="formulario__input" placeholder="Nombre Ponente" id="nombre" value="<?php echo $ponente->nombre ?? '' ?>">
-    </div>
+
+    
 
     <div class="formulario__campo">
         <label for="apellido" class="formulario__label">Apellido</label>

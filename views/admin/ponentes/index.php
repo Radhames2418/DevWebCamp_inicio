@@ -54,3 +54,7 @@
         </p>
     <?php } ?>
 </div>
+
+<?php 
+    echo $paginacion;
+?>

@@ -43,7 +43,7 @@ class ActiveRecord
     {
         // Consultar la base de datos
         $resultado = self::$db->query($query);
-        
+
 
         // Iterar los resultados
         $array = [];
@@ -118,9 +118,9 @@ class ActiveRecord
     }
 
     // Obtener todos los Registros
-    public static function all()
+    public static function all($orden = 'DESC')
     {
-        $query = "SELECT * FROM " . static::$tabla . " ORDER BY id DESC";
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY id {$orden}";
         $resultado = self::consultarSQL($query);
         return $resultado;
     }
@@ -154,10 +154,33 @@ class ActiveRecord
         return array_shift($resultado);
     }
 
+    // Paginar los registros
+    public static function paginar($por_pagina, $offset)
+    {
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY id DESC LIMIT {$por_pagina} OFFSET {$offset}";
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+
     // Busqueda Where con Columna 
     public static function where($columna, $valor)
     {
         $query = "SELECT * FROM " . static::$tabla . " WHERE {$columna} = '{$valor}'";
+        $resultado = self::consultarSQL($query);
+        return array_shift($resultado);
+    }
+
+    // Busqueda Where con Multiples opciones 
+    public static function whereArray($array = [])
+    {
+        $query = "SELECT * FROM " . static::$tabla . " WHERE ";
+
+        foreach ($array as $key => $value) {
+            $query .= "{$key} = {$value} ";
+            if (array_key_last($array) !== $key) {
+                $query .= "AND ";
+            }
+        }
         $resultado = self::consultarSQL($query);
         return array_shift($resultado);
     }

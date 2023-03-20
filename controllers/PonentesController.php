@@ -27,22 +27,28 @@ class PonentesController
             header('location: /admin/ponentes?page=1');
         }
 
-        $registos_por_pagina = 10;
+        $registos_por_pagina = 4;
         $total = Ponente::total();
 
         $paginacion = new Paginacion(
-            $pagina_actual,
-            $registos_por_pagina,
-            $total
+            pagina_actual: $pagina_actual,
+            registro_por_pagina: $registos_por_pagina,
+            total_registro: $total
         );
 
-        debuguear($paginacion->total_pagina());
+        if ($paginacion->total_pagina() < $pagina_actual) {
+            header('location: /admin/ponentes?page=1');
+        }
 
-        $ponentes = Ponente::all();
+        $ponentes = Ponente::paginar(
+            por_pagina: $registos_por_pagina,
+            offset: $paginacion->offset()
+        );
 
         $router->render('admin/ponentes/index', [
             'titulo' => 'Ponentes / Conferencistas',
-            'ponentes' => $ponentes
+            'ponentes' => $ponentes,
+            'paginacion' => $paginacion->paginacion()
         ]);
     }
 
@@ -53,7 +59,7 @@ class PonentesController
         }
 
         $alertas = [];
-        $ponente = new Ponente();
+        $ponente = new Ponente;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!empty($_FILES['imagen']['tmp_name'])) {

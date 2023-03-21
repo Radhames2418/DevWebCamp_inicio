@@ -518,7 +518,7 @@ h3 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-.horas__hora {
+.horas__hora, .horas__hora--deshabilitada {
   color: #007df4;
   border: 1px solid #007df4;
   border-radius: 1rem;
@@ -529,8 +529,16 @@ h3 {
   background-color: #007df4;
   color: #FFFFFF;
 }
-.horas__hora:hover {
+.horas__hora:hover, .horas__hora--deshabilitada:hover {
   cursor: pointer;
+}
+.horas__hora--deshabilitada {
+  border: 1px solid #64748B;
+  color: #64748B;
+  opacity: 0.5;
+}
+.horas__hora--deshabilitada:hover {
+  cursor: not-allowed;
 }
 
 .header {

@@ -75,9 +75,8 @@
         <ul id="horas" class="horas">
             <?php foreach ($horas as $hora) { ?>
                 <li 
-
                     data-hora-id ="<?php echo $hora->id; ?>"
-                    class="horas__hora"><?php echo $hora->hora; ?>
+                    class="horas__hora horas__hora--deshabilitada"><?php echo $hora->hora; ?>
                 </li>
             <?php } ?>
         </ul>

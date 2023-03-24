@@ -12,6 +12,7 @@ class EventosController
 {
     public static function index(Router $router)
     {
+        
         if (!is_auth() && !is_admin()) {
             header('location: /login');
         }

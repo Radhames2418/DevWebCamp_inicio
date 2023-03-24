@@ -97,6 +97,9 @@
             placeholder="Buscar Ponentes" 
             id="ponentes"
         >
+        <ul id="listado-ponentes" class="listado-ponentes">
+
+        </ul>
     </div>
 
 

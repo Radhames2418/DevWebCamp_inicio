@@ -72,6 +72,9 @@
         }
 
         function limpiarPonentes() {
+            /**
+             * Forma de limpiar de maneraCorrecta
+             */
             while (listadoPonentes.firstChild) {
                 listadoPonentes.removeChild(listadoPonentes.firstChild);
             }

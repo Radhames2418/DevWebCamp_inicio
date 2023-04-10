@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Metodo creado para poder
+ * parar la ejecucion del programa y
+ * observar algunas variables
+ * @param $variable
+ * @return string
+ */
 function debuguear($variable): string
 {
     echo "<pre>";

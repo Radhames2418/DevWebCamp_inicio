@@ -27,7 +27,7 @@ class PonentesController
             header('location: /admin/ponentes?page=1');
         }
 
-        $registos_por_pagina = 4;
+        $registos_por_pagina = 10;
         $total = Ponente::total();
 
         $paginacion = new Paginacion(
@@ -102,7 +102,6 @@ class PonentesController
             'redes' => json_decode($ponente->redes)
         ]);
     }
-
 
     public static function editar(Router $router)
     {

@@ -17,11 +17,13 @@
         text-transform: uppercase;
         text-align: center;
 
+        &--actual,
         &:hover{
             background-color: white;
             color: v.$azul;
         }
     }
+
 
 
 }

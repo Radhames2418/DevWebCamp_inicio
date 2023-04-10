@@ -3,7 +3,7 @@
         'name' => 'juandelatorre/devwebcamp',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'ced13409aedaee7e74083132ffad2b9e7e94bca7',
+        'reference' => '6f5966e47a2eec8dde3cf460fe7945ec6848c228',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -40,7 +40,7 @@
         'juandelatorre/devwebcamp' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'ced13409aedaee7e74083132ffad2b9e7e94bca7',
+            'reference' => '6f5966e47a2eec8dde3cf460fe7945ec6848c228',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -33,10 +33,10 @@
         </a>
 
         <nav class="navegacion">
-            <a href="/devwebcamp" class="navegacion__enlace">Evento</a>
-            <a href="/paquetes" class="navegacion__enlace">Paquetes</a>
-            <a href="/workshops-conferencia" class="navegacion__enlace">Talleres/ Conferencias</a>
-            <a href="/registro" class="navegacion__enlace">Comprar Paso</a>
+            <a href="/devwebcamp" class="navegacion__enlace <?php echo pagina_actual('/devwebcamp') ? 'navegacion__enlace--actual' : '' ?>">Evento</a>
+            <a href="/paquetes" class="navegacion__enlace <?php echo pagina_actual('/paquetes') ? 'navegacion__enlace--actual' : '' ?>">Paquetes</a>
+            <a href="/workshops-conferencia" class="navegacion__enlace <?php echo pagina_actual('/workshops-conferencia') ? 'navegacion__enlace--actual' : '' ?>">Talleres/ Conferencias</a>
+            <a href="/registro" class="navegacion__enlace <?php echo pagina_actual('/registro') ? 'navegacion__enlace--actual' : '' ?>">Comprar Paso</a>
         </nav>
     </div>
 </div>

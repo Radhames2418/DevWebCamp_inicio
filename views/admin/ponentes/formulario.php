@@ -32,7 +32,6 @@
             <picture>
                 <source srcset="<?php echo $_ENV['HOST'] . '/img/speakers/' . $ponente->imagen ?>.webp" type="image/webp">
                 <source srcset="<?php echo $_ENV['HOST'] . '/img/speakers/' . $ponente->imagen ?>.png" type="image/png">
-
                 <img src="<?php echo $_ENV['HOST'] . '/img/speakers/' . $ponente->imagen ?>.png" alt="Imagen Ponente">
             </picture>
         </div>

@@ -17,8 +17,11 @@
   &:nth-child(2) {
     order: -1;
   }
+
   @include m.tablet{
-    order: unset;
+    &:nth-child(2) {
+      order: 0;
+    }
   }
 
 

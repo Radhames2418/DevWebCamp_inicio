@@ -438,8 +438,8 @@ h3 {
   order: -1;
 }
 @media (min-width: 768px) {
-  .paquete {
-    order: unset;
+  .paquete:nth-child(2) {
+    order: 0;
   }
 }
 .paquete__lista {
@@ -454,6 +454,26 @@ h3 {
   text-align: center;
   color: #007df4;
   font-weight: 900;
+}
+
+.agenda {
+  padding: 5rem 0;
+  width: min(95%, 140rem);
+  margin: 0 auto;
+}
+
+.eventos__heading {
+  color: #007df4;
+  margin: 5rem 0;
+  text-align: left;
+  font-size: clamp(2rem, -0.8rem + 8vw, 6rem);
+}
+.eventos--fecha {
+  color: #64748B;
+  margin: 3rem 0 1rem 0;
+}
+.eventos--workshops .eventos__heading {
+  color: #00c8c2;
 }
 
 .formulario {

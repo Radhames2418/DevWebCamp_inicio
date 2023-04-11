@@ -170,6 +170,14 @@ class ActiveRecord
         return array_shift($resultado);
     }
 
+    // Retornar los registros por un orden
+    public static function ordernar($columna, $orden)
+    {
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY {$columna} {$orden}";
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+
     // Busqueda Where con Multiples opciones 
     public static function whereArray($array = [])
     {
@@ -184,6 +192,7 @@ class ActiveRecord
         $resultado = self::consultarSQL($query);
         return $resultado;
     }
+
 
     // crea un nuevo registro
     public function crear()

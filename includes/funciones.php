@@ -27,12 +27,16 @@ function pagina_actual($path)
 
 function is_auth(): bool
 {
-    session_start();
+    if (!isset($_SESSION)){
+        session_start();
+    }
     return isset($_SESSION['nombre']) && !empty($_SESSION);
 }
 
 function is_admin(): bool
 {
-    session_start();
+    if (!isset($_SESSION)){
+        session_start();
+    }
     return isset($_SESSION['admin']);
 }

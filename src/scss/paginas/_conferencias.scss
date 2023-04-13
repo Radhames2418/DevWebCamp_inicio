@@ -8,6 +8,7 @@
 
 .eventos{
   $modificador: &;
+  $evento: '.evento';
 
   &__heading{
     color: v.$azul;
@@ -25,6 +26,20 @@
     #{$modificador}__heading{
       color: v.$secundario;
     }
+
+    #{$evento}__informacion{
+      background-color: v.$secundario;
+
+      &:hover{
+        background-color: darken(v.$secundario, 10%);
+        cursor: pointer;
+      }
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next{
+    color: rgba(v.$blanco, .5);
   }
 }
 
@@ -34,11 +49,21 @@
 
   }
 
+  &__nombre{
+    font-size: 2rem;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   &__informacion{
     padding: 2rem;
     border-radius: 1rem;
     background-color: v.$azul;
     color: v.$blanco;
+
     transition: 300ms background-color ease;
 
     &:hover{
@@ -71,4 +96,5 @@
   &__autor-nombre{
     font-weight: v.$bold;
   }
+
 }

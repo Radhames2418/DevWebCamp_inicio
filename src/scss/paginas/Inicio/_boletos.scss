@@ -1,0 +1,86 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.boletos{
+
+  &__grid{
+    @include m.contenedor-sm;
+    @include m.grid(1,5rem);
+
+  }
+}
+
+.boleto{
+
+  width: min(100% - 5rem, 65rem);
+  margin: 0 auto;
+  padding: 6rem;
+  border-radius: 2rem;
+  color: v.$blanco;
+  position: relative;
+
+  &::before,
+  &::after{
+    position: absolute;
+    content: '';
+    background-color: v.$blanco;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+  }
+
+  &::before{
+    left: 0;
+  }
+  &::after{
+    right: 0;
+    bottom: 5rem;
+  }
+
+  &--presencial{
+    background-color:hsla(178,100%,39%,1);
+    background-image:
+            radial-gradient(at 49% 80%, hsla(209,100%,47%,1) 0px, transparent 50%),
+            radial-gradient(at 0% 0%, hsla(178,100%,39%,1) 0px, transparent 50%),
+            radial-gradient(at 98% 53%, hsla(209,100%,47%,1) 0px, transparent 50%),
+            radial-gradient(at 100% 0%, hsla(178,100%,39%,1) 0px, transparent 50%),
+            radial-gradient(at 0% 16%, hsla(209,100%,47%,1) 0px, transparent 50%),
+            radial-gradient(at 98% 96%, hsla(178,100%,39%,1) 0px, transparent 50%)
+
+  }
+  &--virtual{
+    background-color: v.$secundario;
+  }
+
+  &--gratis{
+    background-color: v.$azul;
+
+  }
+
+  &__enlace-contenedor{
+    display: flex;
+    max-width: 25rem;
+    margin: 5rem auto;
+  }
+
+  &__logo{
+    @include m.logo;
+    @include m.texto-fluido(2rem, 4rem);
+  }
+
+  &__plan{
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin: 3rem 0 0 0;
+  }
+
+  &__precio{
+    margin: 3rem 0 0 0;
+    font-weight: v.$black;
+    font-size: 4rem;
+  }
+
+  &__enlace{
+    @include m.boton(v.$azul, v.$blanco);
+  }
+}

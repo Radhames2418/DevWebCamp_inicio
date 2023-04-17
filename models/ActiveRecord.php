@@ -136,11 +136,17 @@ class ActiveRecord
     /**
      * Cantidad de registros totales de una tabla
      *
+     * @param string $columna
+     * @param string $valor
      * @return integer
      */
-    public static function total(): int
+    public static function total(string $columna = "", string $valor = ""): int
     {
         $query = "SELECT COUNT(*) as Total FROM  " . static::$tabla;
+        if ($columna) {
+            $query .= " WHERE {$columna} = {$valor}";
+        }
+
         $resultado = self::$db->query($query);
         $total = $resultado->fetch_array();
         return (int) array_shift($total);

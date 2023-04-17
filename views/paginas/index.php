@@ -4,22 +4,22 @@
 
 <section class="resumen">
     <div class="resumen__grid">
-        <div class="resumen__bloque">
+        <div data-aos="<?php aos_animacion(); ?>" class="resumen__bloque">
             <p class="resumen__texto resumen__texto--numero"><?php echo $ponentes_total ?></p>
             <p class="resumen__texto resumen__texto--texto">speakers</p>
         </div>
 
-        <div class="resumen__bloque">
+        <div data-aos="<?php aos_animacion(); ?>" class="resumen__bloque">
             <p class="resumen__texto resumen__texto--numero"><?php echo $conferencias_total ?></p>
             <p class="resumen__texto resumen__texto--texto">conferencias</p>
         </div>
 
-        <div class="resumen__bloque">
+        <div data-aos="<?php aos_animacion(); ?>" class="resumen__bloque">
             <p class="resumen__texto resumen__texto--numero"><?php echo $workshops_total ?></p>
             <p class="resumen__texto resumen__texto--texto">workshops</p>
         </div>
 
-        <div class="resumen__bloque">
+        <div data-aos="<?php aos_animacion(); ?>" class="resumen__bloque">
             <p class="resumen__texto resumen__texto--numero">500</p>
             <p class="resumen__texto resumen__texto--texto">asistentes</p>
         </div>
@@ -32,7 +32,7 @@
 
     <div class="speakers__grid">
         <?php foreach ($ponentes as $ponente) { ?>
-            <div class="speaker">
+            <div data-aos="<?php aos_animacion(); ?>" class="speaker">
                 <picture>
                     <source srcset="<?php echo $_ENV['HOST'] . '/img/speakers/' . $ponente->imagen ?>.webp" type="image/webp">
                     <source srcset="<?php echo $_ENV['HOST'] . '/img/speakers/' . $ponente->imagen ?>.png" type="image/png">

@@ -26,15 +26,16 @@
     background-color: v.$blanco;
     width: 5rem;
     height: 5rem;
-    border-radius: 50%;
+    top: calc(50% - 2.5rem);
   }
 
   &::before{
+    clip-path: circle(50% at 25% 50%);
     left: 0;
   }
   &::after{
+    clip-path: circle(50% at 75% 50%);
     right: 0;
-    bottom: 5rem;
   }
 
   &--presencial{
@@ -57,12 +58,6 @@
 
   }
 
-  &__enlace-contenedor{
-    display: flex;
-    max-width: 25rem;
-    margin: 5rem auto;
-  }
-
   &__logo{
     @include m.logo;
     @include m.texto-fluido(2rem, 4rem);
@@ -80,7 +75,15 @@
     font-size: 4rem;
   }
 
+  &__enlace-contenedor{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+  }
+
+
   &__enlace{
     @include m.boton(v.$azul, v.$blanco);
+    width: auto;
   }
 }

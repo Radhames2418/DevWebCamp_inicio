@@ -6,7 +6,7 @@
     </p>
 
     <div class="devwebcamp__grid">
-        <div class="devwebcamp__imagen">
+        <div data-aos="<?php aos_animacion(); ?>" class="devwebcamp__imagen">
             <picture>
                 <source srcset="build/img/sobre_devwebcamp.avif" type="image/avif">
                 <source srcset="build/img/sobre_devwebcamp.webp" type="image/webp">
@@ -14,7 +14,7 @@
             </picture>
         </div>
 
-        <div class="devwebcamp__contenido">
+        <div data-aos="<?php aos_animacion(); ?>" class="devwebcamp__contenido">
             <p class="devwebcamp__texto">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, atque, corporis delectus ducimus ea magni perspiciatis porro quidem recusandae repellat unde, vel. Corporis dolor facilis impedit ipsam ipsum nisi sapiente.
             </p>

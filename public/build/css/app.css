@@ -735,14 +735,17 @@ h3 {
   background-color: #FFFFFF;
   width: 5rem;
   height: 5rem;
-  border-radius: 50%;
+  top: calc(50% - 2.5rem);
 }
 .boleto::before {
+  -webkit-clip-path: circle(50% at 25% 50%);
+          clip-path: circle(50% at 25% 50%);
   left: 0;
 }
 .boleto::after {
+  -webkit-clip-path: circle(50% at 75% 50%);
+          clip-path: circle(50% at 75% 50%);
   right: 0;
-  bottom: 5rem;
 }
 .boleto--presencial {
   background-color: hsl(178, 100%, 39%);
@@ -753,11 +756,6 @@ h3 {
 }
 .boleto--gratis {
   background-color: #007df4;
-}
-.boleto__enlace-contenedor {
-  display: flex;
-  max-width: 25rem;
-  margin: 5rem auto;
 }
 .boleto__logo {
   color: #FFFFFF;
@@ -782,6 +780,11 @@ h3 {
   font-weight: 900;
   font-size: 4rem;
 }
+.boleto__enlace-contenedor {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+}
 .boleto__enlace {
   background-color: #007df4;
   padding: 1.5rem 4rem;
@@ -794,6 +797,7 @@ h3 {
   text-align: center;
   width: 100%;
   display: inline-block;
+  width: auto;
 }
 .boleto__enlace:hover {
   background-color: #0063c1;

@@ -40,3 +40,26 @@ function is_admin(): bool
     }
     return isset($_SESSION['admin']);
 }
+
+/**
+ * @return void
+ */
+function aos_animacion(): void {
+    $efectos = [
+        'fade-up',
+        'fade-down',
+        'fade-left',
+        'fade-right',
+        'flip-left',
+        'flip-right',
+        'zoom-in',
+        'zoom-in-up',
+        'zoom-in-down',
+        'zoom-out'
+    ];
+
+    $indice = array_rand($efectos, 1);
+    echo $efectos[$indice];
+
+
+}

@@ -32,7 +32,6 @@ class Router
         if ( $fn ) {
             call_user_func($fn, $this);
         } else {
-
             ob_start(); 
             include_once __DIR__ . "/views/auth/notFound.php";
             $contenido = ob_get_clean(); 

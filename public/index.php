@@ -5,6 +5,7 @@ require_once __DIR__ . '/../includes/app.php';
 use Controllers\APIEventos;
 use Controllers\APIPonentes;
 use Controllers\PaginasController;
+use Controllers\RegistroController;
 use MVC\Router;
 use Controllers\AuthController;
 use Controllers\DashboardController;
@@ -65,6 +66,14 @@ $router->get('/admin/registrados', [RegistradosController::class, 'index']);
 
 // Area de administracion : regalos
 $router->get('/admin/regalos', [RegalosController::class, 'index']);
+
+//Registro de usuarios
+$router->get('/finalizar-registro', [RegistroController::class, 'crear']);
+$router->get('/boleto', [RegistroController::class, 'boleto']);
+$router->post('/finalizar-registro/gratis', [RegistroController::class, 'gratis']);
+$router->post('/finalizar-registro/pagar', [RegistroController::class, 'pagar']);
+$router->get('/finalizar-registro/conferencias', [RegistroController::class, 'conferencias']);
+$router->post('/finalizar-registro/conferencias', [RegistroController::class, 'conferencias']);
 
 // Area publica
 $router->get('/', [PaginasController::class, 'index']);

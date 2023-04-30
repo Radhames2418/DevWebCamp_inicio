@@ -326,6 +326,10 @@ img {
   height: auto;
 }
 
+.swal2-popup {
+  font-size: 2rem !important;
+}
+
 h1, h2, h3 {
   font-family: "Outfit", sans-serif;
   font-weight: 900;
@@ -424,6 +428,24 @@ h3 {
     align-items: flex-start;
   }
 }
+.paquetes__submit {
+  margin-top: 3rem;
+  background-color: #007df4;
+  padding: 1.5rem 4rem;
+  color: #FFFFFF;
+  font-size: 1.8rem;
+  font-weight: 700;
+  border: none;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+}
+.paquetes__submit:hover {
+  background-color: #0063c1;
+  cursor: pointer;
+}
 
 .paquete {
   border: 1px solid #7f8ea3;
@@ -450,7 +472,7 @@ h3 {
 }
 .paquete__precio {
   font-size: 6rem;
-  margin: 3rem 0 0 0;
+  margin: 3rem 0;
   text-align: center;
   color: #007df4;
   font-weight: 900;
@@ -503,6 +525,7 @@ h3 {
   border-radius: 1rem;
   background-color: #007df4;
   color: #FFFFFF;
+  min-height: 21rem;
   transition: 300ms background-color ease;
 }
 .evento__informacion:hover {
@@ -529,6 +552,28 @@ h3 {
 }
 .evento__autor-nombre {
   font-weight: 700;
+}
+.evento__agregar {
+  background-color: #FFFFFF;
+  padding: 1.5rem 4rem;
+  color: #1a1b15;
+  font-size: 1.8rem;
+  font-weight: 700;
+  border: none;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  margin-top: 1rem;
+}
+.evento__agregar:hover {
+  background-color: #e6e6e6;
+  cursor: pointer;
+}
+.evento__agregar:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .resumen {
@@ -803,6 +848,69 @@ h3 {
   background-color: #0063c1;
   cursor: pointer;
 }
+.boleto--acceso {
+  width: 30rem;
+  height: 50rem;
+  padding: 10rem 3rem;
+}
+@media (min-width: 768px) {
+  .boleto--acceso {
+    width: 60rem;
+    height: 30rem;
+    padding: 6rem;
+  }
+}
+.boleto--acceso .boleto__logo {
+  font-size: clamp(2rem, -0.8rem + 10vw, 1rem);
+  margin: 0;
+  text-align: left;
+}
+.boleto--acceso .boleto__codigo {
+  font-size: 4rem;
+  font-weight: 700;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .boleto--acceso .boleto__codigo {
+    position: absolute;
+    top: 8rem;
+    right: 0;
+    transform: rotate(90deg);
+  }
+}
+.boleto--acceso .boleto__nombre {
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.boleto::before {
+  -webkit-clip-path: circle(50% at 50% 25%);
+          clip-path: circle(50% at 50% 25%);
+  left: calc(50% - 2.5rem);
+  top: 0;
+}
+@media (min-width: 768px) {
+  .boleto::before {
+    -webkit-clip-path: circle(50% at 25% 50%);
+            clip-path: circle(50% at 25% 50%);
+    left: 0;
+    top: calc(50% - 2.5rem);
+  }
+}
+.boleto::after {
+  -webkit-clip-path: circle(50% at 50% 75%);
+          clip-path: circle(50% at 50% 75%);
+  left: calc(50% - 2.5rem);
+  top: calc(100% - 5rem);
+}
+@media (min-width: 768px) {
+  .boleto::after {
+    -webkit-clip-path: circle(50% at 75% 50%);
+            clip-path: circle(50% at 75% 50%);
+    left: calc(100% - 5rem);
+    top: calc(50% - 2.5rem);
+  }
+}
 
 .formulario {
   display: flex;
@@ -907,7 +1015,7 @@ h3 {
   background-color: #0063c1;
   cursor: pointer;
 }
-.formulario__submit--registrar {
+.formulario__submit--registrar, .formulario__submit--full {
   width: 100%;
 }
 
@@ -1456,5 +1564,102 @@ h3 {
 .listado-ponentes__ponente--seleccionado {
   background-color: #007df4;
   color: #FFFFFF;
+}
+
+.eventos-registro {
+  width: min(95%, 140rem);
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .eventos-registro {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+  }
+}
+@media (min-width: 768px) {
+  .eventos-registro__listado {
+    flex: 0 0 60%;
+  }
+}
+.eventos-registro__grid {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 768px) {
+  .eventos-registro__grid {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.eventos-registro__heading--conferencia, .eventos-registro__heading--workshops {
+  color: #007df4;
+  white-space: nowrap;
+}
+.eventos-registro__heading--conferencia {
+  font-size: clamp(2rem, -0.8rem + 10vw, 5rem);
+}
+.eventos-registro__heading--workshops {
+  margin-top: 5rem;
+  color: #00c8c2;
+}
+.eventos-registro__fecha {
+  margin: 6rem 0 3rem;
+}
+
+.registros {
+  background-color: #F8FAFC;
+  padding: 3rem;
+  border-radius: 1rem;
+}
+@media (min-width: 768px) {
+  .registros {
+    flex: 0 0 40%;
+    position: sticky;
+    top: 3rem;
+  }
+}
+.registros__heading {
+  margin: 0 0 3rem 0;
+}
+.registros__evento {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.registros__evento:nth-child(even) {
+  background-color: #edf2f7;
+}
+.registros__nombre {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+.registros__eliminar {
+  all: unset;
+  color: rgb(169, 0, 0);
+  cursor: pointer;
+}
+.registros__regalo {
+  margin-top: 3rem;
+}
+.registros__texto {
+  text-align: center;
+}
+.registros__label {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.registros__select {
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 0.1rem solid #64748B;
+  padding: 1rem;
+  border-radius: 0.5rem;
 }
 /*# sourceMappingURL=app.css.map */

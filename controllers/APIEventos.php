@@ -9,7 +9,8 @@ class APIEventos
     public static function index()
     {
         if (!is_auth() && !is_admin()) {
-            header('location: /login');
+            echo json_encode([]);
+            return;
         }
 
         $dia_id = $_GET['dia_id'] ?? '';
